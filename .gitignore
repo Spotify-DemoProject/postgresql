@@ -1,0 +1,9 @@
+
+# Configuration Files
+**/*.ini
+
+# Snapshots
+**/*.sql
+
+# Pycache
+**/__pycache__
