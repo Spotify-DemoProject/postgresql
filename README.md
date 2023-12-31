@@ -9,8 +9,7 @@ Spotify API 데이터 수집 과정에서 반복적으로 사용되는 파라미
 # Before Start
 - install postgres
 - install pip modules for S3 data backup
-```
-# 
+``` bash
 pip install boto3
 ```
 <br>
