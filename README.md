@@ -7,7 +7,37 @@ Spotify API 데이터 수집 과정에서 반복적으로 사용되는 파라미
 <br>
 
 # Before Start
-- install postgres
+``` bash
+sudo apt install postgresql postgresql-contrib
+sudo systemctl enable postgresql
+sudo systemctl start postgresql
+```
+``` bash
+sudo -u postgres psql
+postgres=# CREATE DATABASE 'spotify'; 
+postgres=# CREATE USER api WITH PASSWORD '<password>'; 
+postgres=# GRANT ALL PRIVILEGES ON DATABASE spotify TO api;
+postgres=# exit;
+
+psql -h localhost -U api spotify
+```
+``` sql
+CREATE TABLE IF NOT EXISTS albums (
+    album_id VARCHAR(30) PRIMARY KEY,
+    release_date VARCHAR(10),
+    insert_date DATE
+);
+
+CREATE TABLE IF NOT EXISTS artists (
+    artist_id VARCHAR(30) PRIMARY KEY,
+    insert_date DATE
+);
+
+CREATE TABLE IF NOT EXISTS tracks (
+    track_id VARCHAR(30) PRIMARY KEY,
+    insert_date DATE
+);
+```
 - install pip modules for S3 data backup
 ``` bash
 pip install boto3
